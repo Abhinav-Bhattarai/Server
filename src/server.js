@@ -2,8 +2,10 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
-import MemoriesRoute from "./memories.js";
-import LettersRoute from "./letters.js";
+import MemoriesRoute from "../memories.js";
+import LettersRoute from "../letters.js";
+
+const serverless = require('serverless-http');
 
 const app = express();
 const PORT = 8080;
@@ -18,8 +20,8 @@ app.use(
 );
 
 // api endpoints
-app.use("/memories", MemoriesRoute);
-app.use("/letters", LettersRoute);
+app.use(".netlify/memories", MemoriesRoute);
+app.use(".netlify/letters", LettersRoute);
 
 // db
 mongoose
@@ -34,3 +36,5 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Listening to localhost:${PORT}`);
 });
+
+serverless(app);
