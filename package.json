@@ -5,8 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "./node_modules/.bin/netlify_lambda server src",
-    "build": "./node_modules/.bin/netlify_lambda build src"
+    "start": "netlify-lambda serve src",
+    "build": "netlify-lambda build src"
   },
   "author": "Abhinav Bhattarai",
   "license": "MIT",
