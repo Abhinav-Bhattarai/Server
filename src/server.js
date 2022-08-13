@@ -20,8 +20,8 @@ app.use(
 );
 
 // api endpoints
-app.use(".netlify/memories", MemoriesRoute);
-app.use(".netlify/letters", LettersRoute);
+app.use(".netlify/functions/memories", MemoriesRoute);
+app.use(".netlify/functions/letters", LettersRoute);
 
 // db
 mongoose
