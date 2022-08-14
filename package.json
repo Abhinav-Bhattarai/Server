@@ -2,11 +2,10 @@
   "name": "album",
   "version": "1.0.0",
   "description": "Backend",
-  "main": "server.js",
-  "type": "module",
+  "main": "./src/server.js",
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start": "NODE_ENV=development netlify-lambda serve src",
+    "build": "NODE_ENV=production netlify-lambda build src"
   },
   "author": "Abhinav Bhattarai",
   "license": "MIT",

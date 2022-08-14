@@ -1,9 +1,11 @@
-import express from 'express';
-import { MemoriesModel } from './MemoriesModel.js';
+const { Router } = require('express');
+const MemoriesModel = require('./MemoriesModel.js');
+const app = require('./server.js');
+const serverless = require('serverless-http');
+const router = Router();
 
-const router = express.Router();
-
-router.get('/', async(_, res) => {
+router.get('/', async(req, res) => {
+    console.log('got the request');
     const response_data = await MemoriesModel.find({});
     return res.json({data: response_data, error: false});
 });
@@ -18,4 +20,6 @@ router.post('/', async(req, res) => {
     return res.json({success: true, error: false})
 });
 
-export default router;
+app.use("/.netlify/functions/memories", router);
+
+module.exports.handler = serverless(app);

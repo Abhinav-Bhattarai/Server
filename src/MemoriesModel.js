@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema({
+const Schema = new mongoose.Schema({
     Initiator: {
         type: String,
         required: true
@@ -17,4 +17,6 @@ const Schema = mongoose.Schema({
     }
 });
 
-export const MemoriesModel = mongoose.model('MemoriesModel', Schema);
+const MemoriesModel = new mongoose.model('MemoriesModel', Schema);
+
+module.exports = MemoriesModel;
