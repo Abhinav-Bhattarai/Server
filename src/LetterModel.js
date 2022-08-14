@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Schema = new mongoose.Schema({
-    User: {
+    Username: {
         type: String,
         required: true
     },
@@ -20,11 +20,6 @@ const Schema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-    Date: {
-        type: String,
-        default: new Date(parseInt(Date.now())).toLocaleDateString()
-    }
 });
 
 const LetterModel = new mongoose.model('LetterModel', Schema);
